@@ -62,3 +62,4 @@ getJSON(pokemonApiURL + pokemonType).then(
         document.querySelector('#spinner').style.display = 'none';
     }
 );
+

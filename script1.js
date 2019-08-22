@@ -1,18 +1,26 @@
 let baseUrl = `https://swapi.co/api/`;
 let sectionUrl = `films/`;
 let indexUrl = '1';
-let url = baseUrl + sectionUrl + indexUrl;
+let url = baseUrl + sectionUrl;
  
 let myPromise = new Promise(function(resolve, reject) {
         fetch(url)
         .then(response => response.json())
         .then(json => {
-            document.querySelector(`#episode_${indexUrl}`).innerHTML +=  `<div class="subtitle">Star Wars: ${json.title}</div>`;
-            document.querySelector(`#episode_${indexUrl}`).innerHTML +=  `<div class="items"><strong>Title:</strong> "${json.title}"</div>
-                                                                <div class="items"><strong>Release Date:</strong> ${json.release_date}</div>
-                                                                <div class="items"><strong>Opening Crawl:</strong> ${json.opening_crawl}</div>
-                                                                <div class="items"><strong>Characters:</strong> ${json.characters}</div>
-                                                                `;
+
+            for(let i = 1; i <= 7; i++) {
+                const movieTitle = document.querySelector('#movie-title');
+                const container = document.querySelector('#container');
+                if(container.className == `container${i}`){
+
+                    container.innerHTML +=  `<div class="subtitle">Star Wars: ${json.results[i - 1].title}</div>
+                                            <div class="items"><strong>Title:</strong> "${json.results[i - 1].title}"</div>
+                                            <div class="items"><strong>Release Date:</strong> ${json.results[i - 1].release_date}</div>
+                                            <div class="items"><strong>Opening Crawl:</strong> ${json.results[i - 1].opening_crawl}</div>
+                                            <div class="items"><strong>Characters:</strong> ${json.results[i - 1].characters}</div>
+                                            `;
+                }
+            };                                                       
         })
         // catches errors & logs + alerts them
         .catch((err) => {
@@ -21,7 +29,7 @@ let myPromise = new Promise(function(resolve, reject) {
             // alert("There is a great disturbance in the Force! (ERROR: " + err);
         })
         // hides onload / spinning image after content is loaded
-        .finally((x) => {
+        .finally(() => {
             document.querySelector('#spinner').style.display = 'none';
         });
 

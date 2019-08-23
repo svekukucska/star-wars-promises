@@ -3,6 +3,11 @@ let sectionUrl = `films/`;
 let indexUrl = '1';
 let url = baseUrl + sectionUrl;
 
+
+
+
+
+ 
 let getJson = function() {
         //gets json from api/url
         fetch(url)
@@ -21,20 +26,27 @@ let getJson = function() {
                         let movieTitle = document.querySelector('#movies-list'); 
                         movieTitle.innerHTML += `<div><a href="/episode${i}.html">${i }. ${json.results[myList[i - 1]].title}</a></div>`;
                         console.log(movieTitle); // REMOVE
+                        console.log(json.results[myList[i]].title);
                 } else {
                         // let movieTitle = document.querySelector('#movies-list'); // remove 
                         let container = document.querySelector('#container');
 
-                        if(container.className == `container${i}`){
+                        if(container.className == `container${myList[i - 1]}`){
                             container.innerHTML +=  `<div class="subtitle">Star Wars: ${json.results[myList[i - 1]].title}</div>
                                                 <div class="items"><strong>Title:</strong> "${json.results[myList[i - 1]].title}"</div>
                                                 <div class="items"><strong>Release Date:</strong> ${json.results[myList[i - 1]].release_date}</div>
                                                 <div class="items"><strong>Opening Crawl:</strong> ${json.results[myList[i - 1]].opening_crawl}</div>
-                                                <div class="items"><strong>Characters:</strong> ${json.results[i - 1].characters}</div>
+                                                <div class="items"><strong>Characters:</strong> ${json.results[myList[i - 1]].characters}</div>
                                                 `;                        
                         }
                     };  
             };
+
+   
+
+
+
+
 
         })
         // catches errors & logs + alerts them

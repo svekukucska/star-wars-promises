@@ -1,3 +1,7 @@
+// please ignore this file - this is only a backup file
+// ===========================
+
+
 let baseUrl = `https://swapi.co/api/`;
 let sectionUrl = `films/`;
 let indexUrl = '1';
@@ -51,8 +55,5 @@ let getJson = function() {
 
   };
 
-
   getJson();
-
-
 

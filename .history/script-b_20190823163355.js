@@ -51,8 +51,5 @@ let getJson = function() {
 
   };
 
-
   getJson();
-
-
 

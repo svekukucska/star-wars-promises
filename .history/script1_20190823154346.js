@@ -3,6 +3,11 @@ let sectionUrl = `films/`;
 let indexUrl = '1';
 let url = baseUrl + sectionUrl;
 
+
+
+
+
+ 
 let getJson = function() {
         //gets json from api/url
         fetch(url)
@@ -35,6 +40,12 @@ let getJson = function() {
                         }
                     };  
             };
+
+   
+
+
+
+
 
         })
         // catches errors & logs + alerts them

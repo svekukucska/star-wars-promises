@@ -67,7 +67,6 @@ li {
 .home-link {
     padding: 5px;
 }
-#movies-list > div {
-    font-size: 20px;
-    padding: 5px;
+#movies-list {
+
 }

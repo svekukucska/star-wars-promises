@@ -67,3 +67,11 @@ li {
 .home-link {
     padding: 5px;
 }
+#movies-list > a {
+    font-size: 20px;
+    padding: 10px;
+    line-height: 200%;
+}
+.title-list {
+    font-size: 18px;
+}
